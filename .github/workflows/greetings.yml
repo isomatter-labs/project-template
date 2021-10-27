@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: '#[[ FIRST ISSUE ]]\nYou made your first issue! Thanks for contributing! ![Welcome!](https://octodex.github.com/welcometocat/)'
+        pr-message: '#[[ FIRST PULL REQUEST ]]\nThis is your first pull request here! Thanks for helping out! ![labtocat](https://octodex.github.com/images/labtocat.png)'
